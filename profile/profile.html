@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weavely - Profile</title>
+    <script type="module" src="profile.mjs"></script>
+    <style>
+        body {
+            background-image: url("../image/background.webp");
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            text-align: center;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 400px;
+        }
+        .btn {
+            width: 100%;
+            padding: 15px;
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Your Profile</h1>
+        <p><strong>Name:</strong> <span id="name">Loading...</span></p>
+        <p><strong>Email:</strong> <span id="email">Loading...</span></p>
+        <p><strong>Phone:</strong> <span id="phone">Loading...</span></p>
+
+        <h2>Networking Links</h2>
+        <p><strong>Instagram:</strong> <span id="name">Loading...</span></p>
+        <p><strong>LinkedIn:</strong> <span id="name">Loading...</span></p>
+        <p><strong>Portfolio:</strong> <span id="name">Loading...</span></p>
+
+        <h2>QR Code</h2>
+        <img id="qr-code" alt="QR Code" src="" />
+        <script>
+            const data = window.location.href;  // URL or text to encode
+            const size = 300;  // Size of the QR code
+
+            // Generate the QR code URL
+            const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=${size}x${size}&data=${encodeURIComponent(data)}`;
+
+            // Display the QR code
+            document.getElementById("qr-code").src = qrCodeUrl;
+        </script>
+
+        <button class="btn" id="logout">Logout</button>
+    </div>
+</body>
+</html>
